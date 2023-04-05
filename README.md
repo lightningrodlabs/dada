@@ -1,6 +1,6 @@
 # Dada
 
-A holochain hApp for collaborative dungeon building and playing. 
+An experimental holochain hApp for Dada in real-time collaborative drawing. 
 
 Real-time colloaboration delivered by [syn](https://github.com/holochain/syn).
 
