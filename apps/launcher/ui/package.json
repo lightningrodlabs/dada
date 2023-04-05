@@ -1,0 +1,51 @@
+{
+  "name": "dada-app",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "npm run build:happ && npm run build:ui",
+    "build:happ": "npm run build:dna && hc app pack ../workdir",
+    "build:dna": "npm run build:zome && hc dna pack ../dnas/dada",
+    "build:zome": "CARGO_TARGET_DIR=../../../target cargo build --release --target wasm32-unknown-unknown",
+    "build:ui": "rimraf public/build && rollup -c",
+    "build:ui:watch": "run-singleton \"rollup -c -w\"",
+
+    "dev:watch": "echo \"starting ui UI_PORT=$UI_PORT APP_PORT=$APP_PORT\" && run-singleton \"PORT=$UI_PORT SVELTE_APP_APP_ID=\"dada$APP_PORT\" SVELTE_APP_APP_PORT=\"$APP_PORT\" SVELTE_APP_ADMIN_PORT=\"$ADMIN_PORT\" rollup -c -w\"",
+    "dev": "echo \"starting ui UI_PORT=$UI_PORT APP_PORT=$APP_PORT\" && PORT=$UI_PORT SVELTE_APP_APP_ID=\"dada$APP_PORT\" SVELTE_APP_APP_PORT=\"$APP_PORT\" SVELTE_APP_ADMIN_PORT=\"$ADMIN_PORT\" rollup -c",
+    "dev2": "PORT=5001 SVELTE_APP_APP_ID=dada2 SVELTE_APP_APP_PORT=8887 rollup -c -w",
+    "start": "sirv public",
+    "validate": "svelte-check",
+    "package": "rimraf ui.zip && rimraf public/build && rollup -c && cd ./public && bestzip ../ui.zip * "
+  },
+  "dependencies": {
+    "@holo-host/convoz": "0.1.0",
+    "@holochain/client": "0.12.1",
+    "@holochain-open-dev/utils": "0.9.3",
+    "@holochain-syn/core": "0.3.0-alpha.7",
+    "@ts-stack/markdown": "^1.4.0",
+    "lodash": "^4.17.21",
+    "sirv-cli": "^1.0.0",
+    "svelte-fa": "^2.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "dotenv": "^8.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.50.1",
+    "run-singleton-cli": "^0.0.7",
+    "watch-cli": "^0.2.3",
+    "svelte-check": "^1.0.0",
+    "svelte-preprocess": "^4.10.7",
+    "@rollup/plugin-typescript": "^6.0.0",
+    "typescript": "^3.9.3",
+    "tslib": "^2.0.0",
+    "@tsconfig/svelte": "^1.0.0"
+  }
+}

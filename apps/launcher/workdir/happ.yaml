@@ -1,0 +1,15 @@
+---
+manifest_version: "1"
+name: dada
+description: ~
+roles:
+  - name: dada
+    provisioning:
+      strategy: create
+      deferred: false
+    dna:
+      bundled: "../dnas/dada/dada.dna"
+      properties: ~
+      uuid: ~
+      version: ~
+      clone_limit: 0

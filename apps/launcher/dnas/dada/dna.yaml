@@ -1,0 +1,19 @@
+---
+manifest_version: "1"
+name: dada
+
+integrity:
+  network_seed: ~
+  properties:
+    type: "Dada"
+  origin_time: 2022-10-03T23:05:19.470323Z
+  zomes:
+    - name: syn_integrity
+      bundled: ../../../../../talking-stickies/target/wasm32-unknown-unknown/release/syn_integrity.wasm
+
+coordinator:
+  zomes:
+    - name: syn
+      bundled: ../../../../../talking-stickies/target/wasm32-unknown-unknown/release/syn.wasm
+      dependencies:
+        - name: syn_integrity
