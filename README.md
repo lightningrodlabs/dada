@@ -29,13 +29,18 @@ npm install
 
 ## Dev mode
 
-1. Run the app
+To open two agents in the tauri/launcher dev context type: 
   ```bash
-  npm run start
+  npm run launch
   ```
 
-2. Navigate to [localhost:5000](http://localhost:5000) in your browser. You should see the UI running.
+If you would prefer to open the app in a local browser type:
 
+  ```bash
+  npm run launch
+  ```
+
+and then navigate to [localhost:5000](http://localhost:5000) in your browser.
 
 ## Releasing (manual)
 
